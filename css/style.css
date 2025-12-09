@@ -897,3 +897,17 @@ html[dir="ltr"] input[type="tel"] {
   color: #00bcd4;
   font-weight: 600;
 }
+
+.section.story-section {
+    padding-top: 40px;    /* space above the row */
+    padding-bottom: 10px; /* small space below the row */
+}
+
+.story-section .row {
+    margin-bottom: 0;     /* remove extra row margin */
+}
+
+.story-section .col-md-4 {
+    margin-bottom: 10px;  /* small gap between columns for mobile */
+}
+
