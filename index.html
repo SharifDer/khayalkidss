@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khayal Kids - قصص الأطفال</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/jpg" href="img/logo.jpg">
+
+<style>
+/* ================= BODY & FONT ================= */
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: #D8F3FF; /* سماوي فاتح */
+    color: #1b1b1b; 
+    margin: 0;
+    transition: background 0.5s, color 0.5s; /* Smooth Transition */
+}
+
+/* النصوص الأساسية */
+h1, h2, h5, p {
+    color: #1b1b1b;
+    transition: color 0.5s;
+}
+
+/* النصوص الثانوية */
+.text-secondary {
+    color: #555 !important;
+    transition: color 0.5s;
+}
+
+/* ================= NAVBAR ================= */
+.navbar-custom {
+    background: #53A6A0; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    padding: 12px 0;
+    transition: background 0.5s;
+}
+.navbar-brand {
+    color: #fff;
+    font-weight: 700;
+}
+.navbar-brand:hover {
+    color: #ffe4fa; 
+    text-decoration: none;
+}
+.navbar-brand img {
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+.navbar .nav-link {
+    color: #fff;
+    transition: color 0.3s;
+}
+.navbar .nav-link:hover {
+    color: #ffe4fa;
+}
+.form-select {
+    border-radius: 6px;
+    background: #c0f0f7;
+    color: #1b1b1b;
+    border: 1px solid #53A6A0;
+    transition: background 0.5s, color 0.5s;
+}
+.form-select option {
+    background: #c0f0f7;
+    color: #1b1b1b;
+}
+
+/* ================= ANIMATION ================= */
+.fade-up {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9) rotate(-5deg);
+    transition: all 0.7s ease-out;
+}
+.fade-up.show {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+}
+
+/* ================= SECTIONS ================= */
+.section {
+    padding: 60px 0;
+}
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1b1b1b;
+    transition: color 0.5s;
+}
+
+/* ================= CHILD CARDS ================= */
+.child-card {
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+    margin: 10px;
+    border-radius: 15px;   
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    transition: all 0.5s ease;
+}
+.child-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: all 0.5s ease;
+}
+.child-card img:hover {
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+/* ================= STORY CARDS ================= */
+.story-card {
+    max-width: 100%;
+    background: #f0f8ff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.story-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+.story-card img {
+    height: 300px; /* تكبير الصور */
+    object-fit: cover;
+    width: 100%;
+}
+
+.story-card img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+.story-card-body {
+    text-align: center;
+    padding: 20px;
+}
+.story-card-body h5, .story-card-body p {
+    color: #1b1b1b;
+    transition: color 0.5s;
+}
+.story-card:hover .story-card-body h5 {
+    transform: translateY(-5px);
+    color: #53A6A0;
+}
+/* ================= SERVICE ================= */
+.service-section {
+    background: #53A6A0;
+    color: #fff;
+    text-align: center;
+    padding: 20px 15px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    max-width: 500px;
+    margin: 0 auto;
+    transition: background 0.5s, color 0.5s;
+}
+
+/* ================= ORDER FORM ================= */
+.order-form {
+    background: #f0f8ff;
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    transition: background 0.5s;
+}
+.form-control, .form-select {
+    background: #c0f0f7;
+    color: #1b1b1b;
+    border: 1px solid #53A6A0;
+}
+.form-control:focus {
+    background: #e0f8ff;
+    color: #1b1b1b;
+    box-shadow: none;
+    border-color: #53A6A0;
+}
+.btn-primary {
+    background: #53A6A0;
+    border: none;
+    color: #fff;
+    transition: background 0.5s, color 0.5s;
+}
+.btn-primary:hover {
+    background: #3e817a;
+}
+.price-info {
+    margin-top: 10px;
+    font-weight: 600;
+    color: #53A6A0;
+    transition: color 0.5s;
+}
+
+/* ================= DARK MODE ================= */
+body.dark-mode {
+    background: #0d1b2a;
+    color: #fff;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h5,
+body.dark-mode p,
+body.dark-mode .text-secondary {
+    color: #fff;
+}
+
+body.dark-mode .navbar-custom {
+    background: #0f1a2b;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background: #16222a;
+    color: #fff;
+    border: 1px solid #53A6A0;
+}
+
+body.dark-mode .story-card {
+    background: #1b263b;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .story-card-body h5,
+body.dark-mode .story-card-body p {
+    color: #fff;
+}
+
+body.dark-mode .child-card {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .service-section {
+    background: #1b263b;
+    color: #fff;
+}
+
+body.dark-mode .order-form {
+    background: #1b263b;
+}
+
+body.dark-mode .btn-primary {
+    background: #53A6A0;
+    color: #fff;
+}
+
+body.dark-mode .price-info {
+    color: #53A6A0;
+}
+
+
+/* ====== FIX MOBILE RESPONSIVE IMAGES ====== */
+@media (max-width: 576px) {
+
+    /* كروت الأطفال */
+    .child-card {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .child-card img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important; /* يظهر الصورة كاملة بدون قص */
+    }
+
+    /* كروت القصص */
+    .story-card img {
+        height: auto !important;
+        object-fit: contain !important; /* يمنع القص */
+    }
+
+    /* الصورة ذات الكلاس الخاص */
+    .story-card img.story-fixed {
+        height: auto !important;
+        padding: 5px !important;
+    }
+
+    /* لتصغير المساحات العامة من أجل الجوال */
+    .section {
+        padding: 40px 0 !important;
+    }
+
+    /* عنوان السكشن */
+    .section-title {
+        font-size: 26px !important;
+        margin-bottom: 25px !important;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="img/logo.jpg" style="width:40px; height:40px; object-fit:cover;" class="ms-2">
+            أنا بطل قصتي
+        </a>
+        <div class="d-flex align-items-center mt-2 mt-lg-0">
+            <select class="form-select form-select-sm ms-3" style="width:80px;">
+                <option>USD</option>
+                <option>EUR</option>
+                <option>SAR</option>
+            </select>
+            <a href="#" class="ms-3"><img src="https://img.icons8.com/ios-glyphs/24/search--v1.png"></a>
+            <a href="#" class="ms-2"><img src="https://img.icons8.com/ios-glyphs/24/user.png"></a>
+            <button id="mode-toggle" class="btn btn-sm btn-outline-light ms-3">
+                <!-- SUN icon -->
+                <svg id="icon-light" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+                <!-- MOON icon -->
+                <svg id="icon-dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- ================= FIRST SECTION ================= -->
+<section class="section">
+    <div class="container text-center">
+       
+        <h1 class="section-title mb-4">أصنع حكاية سحرية يكون طفلـك بطلها</h1>
+    <p style="
+        font-size: 18px;
+        color: #555;
+        margin-top: -5px;
+        background: #f9f4ff;
+        display: inline-block;
+        padding: 10px 18px;
+        border-radius: 12px;
+        border: 1px solid #e5d8ff;
+    ">
+        ارفع صورة طفلك وأدخل اسمه وعمره… وخلال ثوانٍ تصنع له قصة يكون هو بطلها!
+    </p>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4 fade-up">
+                <div class="child-card">
+                    <img src="img/1.jpg" alt="طفل 1">
+                </div>
+            </div>
+            <div class="col-md-4 fade-up">
+                <div class="child-card">
+                    <img src="img/2.jpg" alt="طفل 2">
+                </div>
+            </div>
+        </div>
+         <h5 class="text-secondary mb-2">أنشئ قصـة طفلـك بنفسك !</h5>
+    </div>
+</section>
+
+<!-- ================= SECOND SECTION (UPDATED) ================= -->
+<section class="section">
+    <div class="container">
+
+        <h2 class="section-title mb-4 text-center">اختر القصة التي تريدها</h2>
+
+        <div class="text-center mb-4">
+            <button class="btn btn-sm btn-outline-dark">اعرض الكل ←</button>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+
+            <div class="col-md-4 fade-up">
+                <div class="story-card">
+                    <img src="img/story.jpg" alt="قصة1">
+                    <div class="story-card-body">
+                        <h5>قصة الطبيعـة</h5>
+                        <p class="price-info">$25 - $30</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 fade-up">
+                <div class="story-card">
+                    <img src="img/story1.jpg" alt="قصة2">
+                    <div class="story-card-body">
+                        <h5>قصة الديناصورات</h5>
+                        <p class="price-info">$25 - $30</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 fade-up">
+                <div class="story-card">
+                    <img src="img/story3.jpg" alt="قصة3">
+                    <div class="story-card-body">
+                        <h5>قصة الحيوانات</h5>
+                        <p class="price-info">$25 - $30</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= SERVICE SECTION ================= -->
+<section class="section">
+    <div class="container">
+        <div class="service-section fade-up">
+
+           نعمل بجد لتوفير الخدمة قريبًا مع أكبر مجموعة من القصص المخصصة لطفلـك<br>
+    أضف رقمك أو بريدك الإكتروني لنتواصل معك اول ما تكون الخدمة جاهزة.
+
+           
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= ORDER FORM ================= -->
+<section class="section">
+    <div class="container">
+        <div class="order-form fade-up">
+          <h3 class="mb-4 text-center">اجعل طفلك بطل قصته اليوم</h3>
+            <form id="storyForm">
+    <div class="mb-3">
+        <label for="name" class="form-label">الاسم <span style="color:red">*</span></label>
+        <input type="text" class="form-control" id="name" placeholder="أدخل الاسم">
+        <div class="invalid-feedback" id="nameError" style="display:none;">الرجاء إدخال الاسم</div>
+    </div>
+    <div class="mb-3">
+        <label for="phone" class="form-label">رقم الجوال</label>
+        <input type="tel" pattern="[0-9]{10,15}" class="form-control" id="phone" style="text-align: right;" placeholder="أدخل رقم الجوال">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">الإيميل</label>
+        <input type="email" class="form-control" id="email" placeholder="أدخل البريد الإلكتروني">
+        <div class="invalid-feedback" id="contactError" style="display:none;">الرجاء إدخال رقم الجوال أو البريد الإلكتروني على الأقل</div>
+    </div>
+
+    <p class="price-info">
+        احصل على قصة طفلك الفريدة بسعر رائع يتراوح بين 25$ - 30$!
+    </p>
+
+    <div class="text-center mt-3">
+        <button type="submit" class="btn btn-primary">اطلب الآن</button>
+    </div>
+</form>
+
+<script>
+document.getElementById('storyForm').addEventListener('submit', function(e) {
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+
+    let valid = true;
+
+    // تحقق الاسم
+    if (!name) {
+        document.getElementById('nameError').style.display = 'block';
+        valid = false;
+    } else {
+        document.getElementById('nameError').style.display = 'none';
+    }
+
+    // تحقق الرقم أو البريد
+    if (!phone && !email) {
+        document.getElementById('contactError').style.display = 'block';
+        valid = false;
+    } else {
+        document.getElementById('contactError').style.display = 'none';
+    }
+
+    if (!valid) {
+        e.preventDefault();
+    }
+});
+</script>
+
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// ================= FADE UP ANIMATION ON SCROLL =================
+const faders = document.querySelectorAll('.fade-up');
+const appearOptions = { threshold: 0.1 };
+const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('show');
+        appearOnScroll.unobserve(entry.target);
+    });
+}, appearOptions);
+faders.forEach(fader => appearOnScroll.observe(fader));
+
+// ================= DARK/LIGHT MODE =================
+const toggleBtn = document.getElementById('mode-toggle');
+const iconLight = document.getElementById('icon-light');
+const iconDark = document.getElementById('icon-dark');
+
+toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+
+    if(document.body.classList.contains('dark-mode')){
+        iconLight.style.display = 'none';
+        iconDark.style.display = 'inline';
+    } else {
+        iconLight.style.display = 'inline';
+        iconDark.style.display = 'none';
+    }
+});
+</script>
+</body>
+</html>
