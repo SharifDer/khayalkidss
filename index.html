@@ -116,6 +116,7 @@ h1, h2, h5, p {
 }
 
 /* ================= STORY CARDS ================= */
+/* تكبير الصور وتنظيم السكشن */
 .story-card {
     max-width: 100%;
     background: #f0f8ff;
@@ -125,25 +126,31 @@ h1, h2, h5, p {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.story-card img {
+    width: 400px;          /* العرض ثابت */
+    height: 300px;         /* الارتفاع ثابت */
+    object-fit: contain;   /* يظهر الصورة كاملة بدون قص */
+    background-color: #f0f8ff; /* لون خلفية لتجنب الفراغات */
+    border-radius: 12px;
+    transition: all 0.5s ease;
+}
+
+.story-card-body {
+    text-align: center;
+    padding: 20px;
+}
+
+
 .story-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 12px 25px rgba(0,0,0,0.3);
-}
-.story-card img {
-    width: 100%;       /* full width of card */
-    height: auto;      /* keep original aspect ratio */
-    object-fit: contain; /* show entire image without cropping */
-    border-radius: 12px;
 }
 
 
 .story-card img:hover {
     transform: scale(1.05) rotate(2deg);
 }
-.story-card-body {
-    text-align: center;
-    padding: 20px;
-}
+
 .story-card-body h5, .story-card-body p {
     color: #1b1b1b;
     transition: color 0.5s;
@@ -284,11 +291,7 @@ body.dark-mode .price-info {
     }
 
     /* الصورة ذات الكلاس الخاص */
-    .story-card img.story-fixed {
-        height: auto !important;
-        padding: 5px !important;
-    }
-
+   
     /* لتصغير المساحات العامة من أجل الجوال */
     .section {
         padding: 40px 0 !important;
@@ -300,10 +303,7 @@ body.dark-mode .price-info {
         margin-bottom: 25px !important;
     }
 }
-.section.story-section {
-    padding-top: 40px;    /* space above the row, can adjust */
-    padding-bottom: 20px; /* space below the row, shrink it */
-}
+
 </style>
 </head>
 <body>
@@ -367,12 +367,13 @@ body.dark-mode .price-info {
                 </div>
             </div>
         </div>
-         <h5 class="text-secondary mb-2">أنشئ قصـة طفلـك بنفjسك !</h5>
+         <h5 class="text-secondary mb-2">أنشئ قصـة طفلـك بنفسك !</h5>
     </div>
 </section>
 
 <!-- ================= SECOND SECTION (UPDATED) ================= -->
-<section class="section story-section">
+<!-- ================= SECOND SECTION (UPDATED) ================= -->
+<section class="section">
     <div class="container">
 
         <h2 class="section-title mb-4 text-center">اختر القصة التي تريدها</h2>
@@ -416,6 +417,7 @@ body.dark-mode .price-info {
         </div>
     </div>
 </section>
+
 
 
 <!-- ================= SERVICE SECTION ================= -->
