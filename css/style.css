@@ -899,8 +899,8 @@ html[dir="ltr"] input[type="tel"] {
 }
 
 .section.story-section {
-    padding-top: 40px;    /* space above the row */
-    padding-bottom: 10px; /* small space below the row */
+    padding-top: 20px;    /* space above the row */
+    padding-bottom: 5px;  /* smaller space below the row */
 }
 
 .story-section .row {
@@ -908,6 +908,5 @@ html[dir="ltr"] input[type="tel"] {
 }
 
 .story-section .col-md-4 {
-    margin-bottom: 10px;  /* small gap between columns for mobile */
+    margin-bottom: 5px;   /* small gap for mobile */
 }
-
