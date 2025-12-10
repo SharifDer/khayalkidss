@@ -1,29 +1,41 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FH22NPFLYR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-FH22NPFLYR');
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Khayal Kids - قصص الأطفال</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/jpg" href="img/logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FH22NPFLYR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FH22NPFLYR');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khayal Kids - قصص الأطفال</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpg" href="img/logo.jpg">
 
 <style>
 /* ================= BODY & FONT ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
     font-family: 'Tajawal', sans-serif;
     background: #D8F3FF; /* سماوي فاتح */
     color: #1b1b1b; 
     margin: 0;
-    transition: background 0.5s, color 0.5s; /* Smooth Transition */
+    transition: background 0.5s, color 0.5s;
+    overflow-x: hidden;
 }
 
 /* النصوص الأساسية */
@@ -56,6 +68,7 @@ h1, h2, h5, p {
 .navbar-brand img {
     border-radius: 50%;
     border: 2px solid #fff;
+    transition: all 0.3s ease;
 }
 .navbar .nav-link {
     color: #fff;
@@ -99,6 +112,9 @@ h1, h2, h5, p {
     color: #1b1b1b;
     transition: color 0.5s;
 }
+.section-title span {
+    color: #ffc107;
+}
 
 /* ================= CHILD CARDS ================= */
 .child-card {
@@ -106,7 +122,7 @@ h1, h2, h5, p {
     height: 300px;
     overflow: hidden;
     margin: 10px;
-    border-radius: 15px;    
+    border-radius: 15px;      
     box-shadow: 0 6px 20px rgba(0,0,0,0.2);
     transition: all 0.5s ease;
 }
@@ -124,7 +140,6 @@ h1, h2, h5, p {
 }
 
 /* ================= STORY CARDS ================= */
-/* تكبير الصور وتنظيم السكشن */
 .story-card {
     max-width: 100%;
     background: #f0f8ff;
@@ -148,12 +163,10 @@ h1, h2, h5, p {
     padding: 20px;
 }
 
-
 .story-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 12px 25px rgba(0,0,0,0.3);
 }
-
 
 .story-card img:hover {
     transform: scale(1.05) rotate(2deg);
@@ -167,7 +180,8 @@ h1, h2, h5, p {
     transform: translateY(-5px);
     color: #53A6A0;
 }
-/* ================= SERVICE ================= */
+
+/* ================= SERVICE & HERO ================= */
 .service-section {
     background: #53A6A0;
     color: #fff;
@@ -224,7 +238,6 @@ body.dark-mode {
     background: #0d1b2a;
     color: #fff;
 }
-
 body.dark-mode h1,
 body.dark-mode h2,
 body.dark-mode h5,
@@ -232,86 +245,64 @@ body.dark-mode p,
 body.dark-mode .text-secondary {
     color: #fff;
 }
-
 body.dark-mode .navbar-custom {
     background: #0f1a2b;
 }
-
 body.dark-mode .form-control,
 body.dark-mode .form-select {
     background: #16222a;
     color: #fff;
     border: 1px solid #53A6A0;
 }
-
 body.dark-mode .story-card {
     background: #1b263b;
     box-shadow: 0 6px 20px rgba(0,0,0,0.5);
 }
-
 body.dark-mode .story-card-body h5,
 body.dark-mode .story-card-body p {
     color: #fff;
 }
-
 body.dark-mode .child-card {
     box-shadow: 0 6px 20px rgba(0,0,0,0.5);
 }
-
 body.dark-mode .service-section {
     background: #1b263b;
     color: #fff;
 }
-
 body.dark-mode .order-form {
     background: #1b263b;
 }
-
 body.dark-mode .btn-primary {
     background: #53A6A0;
     color: #fff;
 }
-
 body.dark-mode .price-info {
     color: #53A6A0;
 }
 
-
 /* ====== FIX MOBILE RESPONSIVE IMAGES ====== */
 @media (max-width: 576px) {
-
-    /* كروت الأطفال */
     .child-card {
         width: 100% !important;
         height: auto !important;
     }
-
     .child-card img {
         width: 100% !important;
         height: auto !important;
-        object-fit: contain !important; /* يظهر الصورة كاملة بدون قص */
+        object-fit: contain !important;
     }
-
-    /* كروت القصص */
     .story-card img {
         height: auto !important;
-        object-fit: contain !important; /* يمنع القص */
+        object-fit: contain !important;
     }
-
-    /* الصورة ذات الكلاس الخاص */
-    
-    /* لتصغير المساحات العامة من أجل الجوال */
     .section {
         padding: 40px 0 !important;
     }
-
-    /* عنوان السكشن */
     .section-title {
         font-size: 26px !important;
         margin-bottom: 25px !important;
     }
 }
-
 </style>
 </head>
 <body>
@@ -319,7 +310,7 @@ body.dark-mode .price-info {
 <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="img/logo.jpg" style="width:40px; height:40px; object-fit:cover;" class="ms-2">
+            <img src="img/logo.jpg" style="width:40px; height:40px; object-fit:cover;" class="ms-2" alt="Logo">
             أنا بطل قصتي
         </a>
         <div class="d-flex align-items-center mt-2 mt-lg-0">
@@ -328,8 +319,8 @@ body.dark-mode .price-info {
                 <option>EUR</option>
                 <option>SAR</option>
             </select>
-            <a href="#" class="ms-3"><img src="https://img.icons8.com/ios-glyphs/24/search--v1.png"></a>
-            <a href="#" class="ms-2"><img src="https://img.icons8.com/ios-glyphs/24/user.png"></a>
+            <a href="#" class="ms-3"><img src="https://img.icons8.com/ios-glyphs/24/search--v1.png" alt="Search"></a>
+            <a href="#" class="ms-2"><img src="https://img.icons8.com/ios-glyphs/24/user.png" alt="User"></a>
             <button id="mode-toggle" class="btn btn-sm btn-outline-light ms-3">
                 <svg id="icon-light" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="5"></circle>
@@ -388,7 +379,7 @@ body.dark-mode .price-info {
 
             <div class="col-md-4 fade-up">
                 <div class="story-card">
-                    <img src="img/story.jpg" alt="قصة1">
+                    <img src="img/story.jpg" loading="lazy" alt="قصة1">
                     <div class="story-card-body">
                         <h5>قصة الطبيعـة</h5>
                         <p class="price-info">$25 - $30</p>
@@ -398,7 +389,7 @@ body.dark-mode .price-info {
 
             <div class="col-md-4 fade-up">
                 <div class="story-card">
-                    <img src="img/story1.jpg" alt="قصة2">
+                    <img src="img/story1.jpg" loading="lazy" alt="قصة2">
                     <div class="story-card-body">
                         <h5>قصة الديناصورات</h5>
                         <p class="price-info">$25 - $30</p>
@@ -408,7 +399,7 @@ body.dark-mode .price-info {
 
             <div class="col-md-4 fade-up">
                 <div class="story-card">
-                    <img src="img/story3.jpg" alt="قصة3">
+                    <img src="img/story3.jpg" loading="lazy" alt="قصة3">
                     <div class="story-card-body">
                         <h5>قصة الحيوانات</h5>
                         <p class="price-info">$25 - $30</p>
@@ -420,20 +411,14 @@ body.dark-mode .price-info {
     </div>
 </section>
 
-
-
 <section class="section">
     <div class="container">
         <div class="service-section fade-up">
-
            نعمل بجد لتوفير الخدمة قريبًا مع أكبر مجموعة من القصص المخصصة لطفلـك<br>
     أضف رقمك أو بريدك الإكتروني لنتواصل معك اول ما تكون الخدمة جاهزة.
-
-            
         </div>
     </div>
 </section>
-
 
 <section class="section">
     <div class="container">
@@ -464,12 +449,11 @@ body.dark-mode .price-info {
     </div>
 </form>
 
-
         </div>
     </div>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 // ================= 1. FADE UP ANIMATION =================
 const faders = document.querySelectorAll('.fade-up');
@@ -504,7 +488,7 @@ if(toggleBtn) {
 
 // ================= 3. FORM BACKEND INTEGRATION =================
 document.getElementById('storyForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Stop the page from reloading immediately
+    e.preventDefault(); 
 
     const nameInput = document.getElementById('name');
     const phoneInput = document.getElementById('phone');
@@ -534,7 +518,7 @@ document.getElementById('storyForm').addEventListener('submit', function(e) {
         contactError.style.display = 'none';
     }
 
-    if (!valid) return; // Stop if validation fails
+    if (!valid) return; 
 
     // 2. Prepare UI for loading state
     const originalBtnText = submitBtn.innerText;
@@ -558,24 +542,20 @@ document.getElementById('storyForm').addEventListener('submit', function(e) {
     })
     .then(async response => {
         if (!response.ok) {
-            // If server returns 400/500 error
             const errData = await response.json().catch(() => ({}));
             throw new Error(errData.detail || 'Server Error');
         }
         return response.json();
     })
     .then(data => {
-        // 5. Success Handling
         alert('تم استلام طلبك بنجاح! سنتواصل معك قريباً.');
-        document.getElementById('storyForm').reset(); // Clear the form
+        document.getElementById('storyForm').reset(); 
     })
     .catch(error => {
-        // 6. Error Handling
         console.error('Error:', error);
         alert('حدث خطأ أثناء الإرسال. يرجى التأكد من اتصال الإنترنت والمحاولة مرة أخرى.');
     })
     .finally(() => {
-        // 7. Reset Button
         submitBtn.innerText = originalBtnText;
         submitBtn.disabled = false;
     });
