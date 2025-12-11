@@ -448,11 +448,11 @@ body.dark-mode .price-info {
     </div>
     <div class="mb-3">
         <label for="phone" class="form-label">رقم الجوال</label>
-        <input type="tel" pattern="[0-9]{10,15}" class="form-control" id="phone" style="text-align: right;" placeholder="أدخل رقم الجوال">
+       <input type="tel" class="form-control" id="phone" style="text-align: right;" placeholder="مثال: 0501234567 أو +966501234567">
     </div>
     <div class="mb-3">
         <label for="email" class="form-label">الإيميل</label>
-        <input type="email" class="form-control" id="email" placeholder="أدخل البريد الإلكتروني">
+       <input type="email" class="form-control" id="email" placeholder="مثال: ahmed@gmail.com" required>
         <div class="invalid-feedback" id="contactError" style="display:none;">الرجاء إدخال رقم الجوال أو البريد الإلكتروني على الأقل</div>
     </div>
 
@@ -527,10 +527,12 @@ document.getElementById('storyForm').addEventListener('submit', function(e) {
         nameError.style.display = 'none';
     }
 
-    if (!phone && !email) {
-        contactError.style.display = 'block';
-        valid = false;
-    } else {
+  if (!phone && !email) {
+    contactError.innerText = 'الرجاء إدخال البريد الإلكتروني';
+    contactError.style.display = 'block';
+    valid = false;
+}
+ else {
         contactError.style.display = 'none';
     }
 
@@ -542,11 +544,23 @@ document.getElementById('storyForm').addEventListener('submit', function(e) {
     submitBtn.disabled = true;
 
     // 3. Prepare Data for Backend
-    const payload = {
-        name: name,
-        email: email === "" ? null : email,
-        phone: phone === "" ? null : phone
-    };
+// 3. Prepare Data for Backend
+let formattedPhone = phone;
+if (phone && phone.trim() !== "") {
+    // Remove all non-digits
+    formattedPhone = phone.replace(/\D/g, '');
+    // Add 00 prefix if not already there
+    if (!formattedPhone.startsWith('00')) {
+        formattedPhone = '00' + formattedPhone;
+    }
+}
+
+const payload = {
+    name: name,
+    email: email === "" ? null : email,
+    phone: formattedPhone === "" ? null : formattedPhone
+};
+
 
     // 4. Send Request to API
     fetch('https://api.khayalkids.com/save', {
