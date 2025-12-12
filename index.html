@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+    <!-- FIX INSTAGRAM BROWSER BUG -->
+    <style>
+        body { 
+            background: #D8F3FF !important; 
+            min-height: 100vh !important;
+            display: block !important;
+        }
+        * { 
+            -webkit-transform: none !important;
+            -webkit-transition: none !important;
+        }
+    </style>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -386,12 +399,13 @@ body.dark-mode .price-info {
 <section class="section">
     <div class="container">
         <div class="service-section fade-up" style="margin-bottom: 40px;">
-           🎉 انضم لأول 100 عائلة واحصل على خصم خاص - العرض محدود!<br>
-           أضف بريدك الإلكتروني لنتواصل معك فور جاهزية الخدمة
+           🎉 عرض تجريبي خاص - أول 20 عائلة فقط!
+           <br><br>
+           سجل الآن واحصل على قصة طفلك بسعر 15$ بدلاً من 35$ ✨
         </div>
         
         <div class="order-form fade-up">
-          <h3 class="mb-4 text-center">اجعل طفلك بطل قصته اليوم</h3>
+          <h3 class="mb-4 text-center">سجل الآن للحصول على العرض التجريبي</h3>
             <form id="storyForm">
     <div class="mb-3">
         <label for="name" class="form-label">الاسم <span style="color:red">*</span></label>
@@ -408,12 +422,16 @@ body.dark-mode .price-info {
         <div class="invalid-feedback" id="contactError" style="display:none;">الرجاء إدخال رقم الجوال أو البريد الإلكتروني على الأقل</div>
     </div>
 
-    <p class="price-info">
-        احصل على قصة طفلك الفريدة بسعر رائع يتراوح بين 25$ - 30$!
+    <p class="price-info" style="text-align: center; line-height: 1.8;">
+        💰 سعر تجريبي: 15$ فقط (السعر العادي 35$)
+        <br>
+        📦 توصيل خلال أسبوعين
+        <br>
+        ⏰ 13 مقعد متبقي فقط من أصل 20
     </p>
 
     <div class="text-center mt-3">
-        <button type="submit" class="btn btn-primary">اطلب الآن</button>
+        <button type="submit" class="btn btn-primary">احجز مقعدك الآن - 15$ فقط</button>
     </div>
 </form>
 
@@ -469,16 +487,24 @@ body.dark-mode .price-info {
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 // ================= 1. FADE UP ANIMATION =================
-const faders = document.querySelectorAll('.fade-up');
-const appearOptions = { threshold: 0.1 };
-const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('show');
-        appearOnScroll.unobserve(entry.target);
-    });
-}, appearOptions);
-faders.forEach(fader => appearOnScroll.observe(fader));
+// Disable animations in Instagram browser to prevent black screen
+const isInstagram = navigator.userAgent.includes('Instagram');
+
+if (!isInstagram) {
+    const faders = document.querySelectorAll('.fade-up');
+    const appearOptions = { threshold: 0.1 };
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('show');
+            appearOnScroll.unobserve(entry.target);
+        });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+} else {
+    // Show everything immediately on Instagram
+    document.querySelectorAll('.fade-up').forEach(el => el.classList.add('show'));
+}
 
 // ================= 2. DARK/LIGHT MODE =================
 const toggleBtn = document.getElementById('mode-toggle');
