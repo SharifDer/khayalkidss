@@ -382,6 +382,45 @@ body.dark-mode .price-info {
     </div>
 </section>
 
+<!-- FORM MOVED HERE - IMMEDIATELY AFTER HERO -->
+<section class="section">
+    <div class="container">
+        <div class="service-section fade-up" style="margin-bottom: 40px;">
+           🎉 انضم لأول 100 عائلة واحصل على خصم خاص - العرض محدود!<br>
+           أضف بريدك الإلكتروني لنتواصل معك فور جاهزية الخدمة
+        </div>
+        
+        <div class="order-form fade-up">
+          <h3 class="mb-4 text-center">اجعل طفلك بطل قصته اليوم</h3>
+            <form id="storyForm">
+    <div class="mb-3">
+        <label for="name" class="form-label">الاسم <span style="color:red">*</span></label>
+        <input type="text" class="form-control" id="name" placeholder="أدخل الاسم">
+        <div class="invalid-feedback" id="nameError" style="display:none;">الرجاء إدخال الاسم</div>
+    </div>
+    <div class="mb-3">
+        <label for="phone" class="form-label">رقم الجوال</label>
+       <input type="tel" class="form-control" id="phone" style="text-align: right;" placeholder="مثال: 0501234567 أو 00966501234567">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">الإيميل</label>
+       <input type="email" class="form-control" id="email" placeholder="مثال: ahmed@gmail.com" required>
+        <div class="invalid-feedback" id="contactError" style="display:none;">الرجاء إدخال رقم الجوال أو البريد الإلكتروني على الأقل</div>
+    </div>
+
+    <p class="price-info">
+        احصل على قصة طفلك الفريدة بسعر رائع يتراوح بين 25$ - 30$!
+    </p>
+
+    <div class="text-center mt-3">
+        <button type="submit" class="btn btn-primary">اطلب الآن</button>
+    </div>
+</form>
+
+        </div>
+    </div>
+</section>
+
 <section class="section">
     <div class="container">
 
@@ -422,48 +461,6 @@ body.dark-mode .price-info {
                     </div>
                 </div>
             </div>
-
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <div class="service-section fade-up">
-           نعمل بجد لتوفير الخدمة قريبًا مع أكبر مجموعة من القصص المخصصة لطفلـك<br>
-    أضف رقمك أو بريدك الإكتروني لنتواصل معك اول ما تكون الخدمة جاهزة.
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <div class="order-form fade-up">
-          <h3 class="mb-4 text-center">اجعل طفلك بطل قصته اليوم</h3>
-            <form id="storyForm">
-    <div class="mb-3">
-        <label for="name" class="form-label">الاسم <span style="color:red">*</span></label>
-        <input type="text" class="form-control" id="name" placeholder="أدخل الاسم">
-        <div class="invalid-feedback" id="nameError" style="display:none;">الرجاء إدخال الاسم</div>
-    </div>
-    <div class="mb-3">
-        <label for="phone" class="form-label">رقم الجوال</label>
-       <input type="tel" class="form-control" id="phone" style="text-align: right;" placeholder="00مثال: 0501234567 أو 966501234567">
-    </div>
-    <div class="mb-3">
-        <label for="email" class="form-label">الإيميل</label>
-       <input type="email" class="form-control" id="email" placeholder="مثال: ahmed@gmail.com" required>
-        <div class="invalid-feedback" id="contactError" style="display:none;">الرجاء إدخال رقم الجوال أو البريد الإلكتروني على الأقل</div>
-    </div>
-
-    <p class="price-info">
-        احصل على قصة طفلك الفريدة بسعر رائع يتراوح بين 25$ - 30$!
-    </p>
-
-    <div class="text-center mt-3">
-        <button type="submit" class="btn btn-primary">اطلب الآن</button>
-    </div>
-</form>
 
         </div>
     </div>
@@ -544,7 +541,6 @@ document.getElementById('storyForm').addEventListener('submit', function(e) {
     submitBtn.disabled = true;
 
     // 3. Prepare Data for Backend
-// 3. Prepare Data for Backend
 let formattedPhone = phone;
 if (phone && phone.trim() !== "") {
     // Remove all non-digits
@@ -578,6 +574,7 @@ const payload = {
         return response.json();
     })
     .then(data => {
+        fbq('track', 'Lead');
         alert('تم استلام طلبك بنجاح! سنتواصل معك قريباً.');
         document.getElementById('storyForm').reset(); 
     })
