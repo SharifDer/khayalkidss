@@ -246,6 +246,9 @@ body.instagram-browser .fade-up {
     border: none;
     color: #fff;
     transition: background 0.5s, color 0.5s;
+    font-size: 18px;
+    padding: 12px 30px;
+    font-weight: 600;
 }
 .btn-primary:hover {
     background: #3e817a;
@@ -255,6 +258,30 @@ body.instagram-browser .fade-up {
     font-weight: 600;
     color: #53A6A0;
     transition: color 0.5s;
+}
+
+/* NEW: What You Get Box */
+.what-you-get {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.what-you-get h4 {
+    color: #53A6A0;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+.what-you-get ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.what-you-get ul li {
+    padding: 8px 0;
+    font-size: 16px;
+    color: #1b1b1b;
 }
 
 /* ================= DARK MODE ================= */
@@ -302,6 +329,15 @@ body.dark-mode .btn-primary {
 }
 body.dark-mode .price-info {
     color: #53A6A0;
+}
+body.dark-mode .what-you-get {
+    background: #16222a;
+}
+body.dark-mode .what-you-get h4 {
+    color: #53A6A0;
+}
+body.dark-mode .what-you-get ul li {
+    color: #fff;
 }
 
 /* ====== FIX MOBILE RESPONSIVE IMAGES ====== */
@@ -361,19 +397,11 @@ body.dark-mode .price-info {
 <section class="section">
     <div class="container text-center">
         
-        <h1 class="section-title mb-4">أصنع حكاية سحرية يكون طفلـك بطلها</h1>
-    <p style="
-        font-size: 18px;
-        color: #555;
-        margin-top: -5px;
-        background: #f9f4ff;
-        display: inline-block;
-        padding: 10px 18px;
-        border-radius: 12px;
-        border: 1px solid #e5d8ff;
-    ">
-        ارفع صورة طفلك وأدخل اسمه وعمره… وخلال ثوانٍ تصنع له قصة يكون بطلها!
-    </p>
+        <h1 class="section-title mb-3">احصل على كتاب فاخر مطبوع باسم وصورة طفلك</h1>
+        <p style="font-size: 18px; color: #555; margin-bottom: 30px;">
+            كتاب مطبوع 24 صفحة - صورة طفلك في كل صفحة - توصيل مجاني
+        </p>
+        
         <div class="row g-4 justify-content-center">
             <div class="col-md-4 fade-up">
                 <div class="child-card">
@@ -386,65 +414,70 @@ body.dark-mode .price-info {
                 </div>
             </div>
         </div>
-         <h5 class="text-secondary mb-2">أنشئ قصـة طفلـك بنفسك !</h5>
+        <h5 class="text-secondary mt-4">أنشئ قصـة طفلـك بنفسك !</h5>
     </div>
 </section>
 
-<!-- FORM MOVED HERE - IMMEDIATELY AFTER HERO -->
+<!-- FORM SECTION -->
 <section class="section">
     <div class="container">
         <div class="service-section fade-up" style="margin-bottom: 40px;">
            🎉 عرض تجريبي خاص - أول 20 عائلة فقط!
            <br><br>
-           سجل الآن واحصل على قصة طفلك بسعر 15$ بدلاً من 35$ ✨
+           احجز الآن بسعر 15$ فقط بدلاً من 35$ ✨
         </div>
         
         <div class="order-form fade-up">
-          <h3 class="mb-4 text-center">سجل الآن للحصول على العرض التجريبي</h3>
+            <!-- NEW: What You Get Section -->
+            <div class="what-you-get">
+                <h4>📦 ماذا ستحصل عليه:</h4>
+                <ul>
+                    <li>✅ كتاب مطبوع فاخر 24 صفحة</li>
+                    <li>✅ صورة طفلك في كل صفحة</li>
+                    <li>✅ اسمه يظهر في القصة</li>
+                    <li>✅ توصيل مجاني للسعودية والخليج</li>
+                    <li>✅ يصلك خلال 3 أسابيع</li>
+                </ul>
+            </div>
+
+            <h3 class="mb-4 text-center">احجز نسختك - متبقي 13 كتاب فقط</h3>
             <form id="storyForm">
-    <div class="mb-3">
-        <label for="name" class="form-label">الاسم <span style="color:red">*</span></label>
-        <input type="text" class="form-control" id="name" placeholder="أدخل الاسم">
-        <div class="invalid-feedback" id="nameError" style="display:none;">الرجاء إدخال الاسم</div>
-    </div>
-    <div class="mb-3">
-        <label for="phone" class="form-label">رقم الجوال</label>
-       <input type="tel" class="form-control" id="phone" style="text-align: right;" placeholder="مثال: 0501234567 أو 00966501234567">
-    </div>
-    <div class="mb-3">
-        <label for="email" class="form-label">الإيميل</label>
-       <input type="email" class="form-control" id="email" placeholder="مثال: ahmed@gmail.com" required>
-        <div class="invalid-feedback" id="contactError" style="display:none;">الرجاء إدخال رقم الجوال أو البريد الإلكتروني على الأقل</div>
-    </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">الاسم <span style="color:red">*</span></label>
+                    <input type="text" class="form-control" id="name" placeholder="أدخل اسمك">
+                    <div class="invalid-feedback" id="nameError" style="display:none;">الرجاء إدخال الاسم</div>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">رقم الجوال</label>
+                    <input type="tel" class="form-control" id="phone" style="text-align: right;" placeholder="مثال: 0501234567 أو 00966501234567">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">الإيميل</label>
+                    <input type="email" class="form-control" id="email" placeholder="مثال: ahmed@gmail.com" required>
+                    <div class="invalid-feedback" id="contactError" style="display:none;">الرجاء إدخال البريد الإلكتروني</div>
+                </div>
 
-    <p class="price-info" style="text-align: center; line-height: 1.8;">
-        💰 سعر تجريبي: 15$ فقط (السعر العادي 35$)
-        <br>
-        📦 توصيل خلال أسبوعين
-        <br>
-        ⏰ 13 مقعد متبقي فقط من أصل 20
-    </p>
+                <p class="price-info" style="text-align: center; line-height: 1.8; font-size: 16px;">
+                    💰 سعر تجريبي: 15$ فقط (السعر العادي 35$)
+                    <br>
+                    ⏰ العرض محدود - 13 مقعد متبقي فقط
+                </p>
 
-    <div class="text-center mt-3">
-        <button type="submit" class="btn btn-primary">احجز مقعدك الآن - 15$ فقط</button>
-    </div>
-</form>
-
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary">احجز كتابي الآن - 15$ فقط</button>
+                </div>
+            </form>
         </div>
     </div>
 </section>
 
 <section class="section">
     <div class="container">
-
         <h2 class="section-title mb-4 text-center">اختر القصة التي تريدها</h2>
-
         <div class="text-center mb-4">
             <button class="btn btn-sm btn-outline-dark">اعرض الكل ←</button>
         </div>
-
         <div class="row g-4 justify-content-center">
-
             <div class="col-md-4 fade-up">
                 <div class="story-card">
                     <img src="img/story.jpg" loading="lazy" alt="قصة1">
@@ -454,7 +487,6 @@ body.dark-mode .price-info {
                     </div>
                 </div>
             </div>
-
             <div class="col-md-4 fade-up">
                 <div class="story-card">
                     <img src="img/story1.jpg" loading="lazy" alt="قصة2">
@@ -464,7 +496,6 @@ body.dark-mode .price-info {
                     </div>
                 </div>
             </div>
-
             <div class="col-md-4 fade-up">
                 <div class="story-card">
                     <img src="img/story3.jpg" loading="lazy" alt="قصة3">
@@ -474,21 +505,19 @@ body.dark-mode .price-info {
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
 
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// Detect Instagram browser and add class to body
+// Detect Instagram browser
 if (navigator.userAgent.includes('Instagram')) {
     document.body.classList.add('instagram-browser');
 }
 
-// ================= 1. FADE UP ANIMATION =================
+// Fade up animation
 const isInstagram = navigator.userAgent.includes('Instagram');
-
 if (!isInstagram) {
     const faders = document.querySelectorAll('.fade-up');
     const appearOptions = { threshold: 0.1 };
@@ -501,19 +530,16 @@ if (!isInstagram) {
     }, appearOptions);
     faders.forEach(fader => appearOnScroll.observe(fader));
 } else {
-    // Show everything immediately on Instagram
     document.querySelectorAll('.fade-up').forEach(el => el.classList.add('show'));
 }
 
-// ================= 2. DARK/LIGHT MODE =================
+// Dark mode toggle
 const toggleBtn = document.getElementById('mode-toggle');
 const iconLight = document.getElementById('icon-light');
 const iconDark = document.getElementById('icon-dark');
-
 if(toggleBtn) {
     toggleBtn.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
-
         if(document.body.classList.contains('dark-mode')){
             iconLight.style.display = 'none';
             iconDark.style.display = 'inline';
@@ -524,10 +550,9 @@ if(toggleBtn) {
     });
 }
 
-// ================= 3. FORM BACKEND INTEGRATION =================
+// Form submission
 document.getElementById('storyForm').addEventListener('submit', function(e) {
     e.preventDefault(); 
-
     const nameInput = document.getElementById('name');
     const phoneInput = document.getElementById('phone');
     const emailInput = document.getElementById('email');
@@ -541,7 +566,6 @@ document.getElementById('storyForm').addEventListener('submit', function(e) {
 
     let valid = true;
 
-    // 1. Validation Logic
     if (!name) {
         nameError.style.display = 'block';
         valid = false;
@@ -549,41 +573,33 @@ document.getElementById('storyForm').addEventListener('submit', function(e) {
         nameError.style.display = 'none';
     }
 
-  if (!phone && !email) {
-    contactError.innerText = 'الرجاء إدخال البريد الإلكتروني';
-    contactError.style.display = 'block';
-    valid = false;
-}
- else {
+    if (!email) {
+        contactError.style.display = 'block';
+        valid = false;
+    } else {
         contactError.style.display = 'none';
     }
 
     if (!valid) return; 
 
-    // 2. Prepare UI for loading state
     const originalBtnText = submitBtn.innerText;
-    submitBtn.innerText = "جاري الإرسال...";
+    submitBtn.innerText = "جاري الحجز...";
     submitBtn.disabled = true;
 
-    // 3. Prepare Data for Backend
-let formattedPhone = phone;
-if (phone && phone.trim() !== "") {
-    // Remove all non-digits
-    formattedPhone = phone.replace(/\D/g, '');
-    // Add 00 prefix if not already there
-    if (!formattedPhone.startsWith('00')) {
-        formattedPhone = '00' + formattedPhone;
+    let formattedPhone = phone;
+    if (phone && phone.trim() !== "") {
+        formattedPhone = phone.replace(/\D/g, '');
+        if (!formattedPhone.startsWith('00')) {
+            formattedPhone = '00' + formattedPhone;
+        }
     }
-}
 
-const payload = {
-    name: name,
-    email: email === "" ? null : email,
-    phone: formattedPhone === "" ? null : formattedPhone
-};
+    const payload = {
+        name: name,
+        email: email === "" ? null : email,
+        phone: formattedPhone === "" ? null : formattedPhone
+    };
 
-
-    // 4. Send Request to API
     fetch('https://api.khayalkids.com/save', {
         method: 'POST',
         headers: {
@@ -599,13 +615,13 @@ const payload = {
         return response.json();
     })
     .then(data => {
-        fbq('track', 'Lead');
-        alert('تم استلام طلبك بنجاح! سنتواصل معك قريباً.');
+        fbq('track', 'CompleteRegistration');
+        alert('🎉 تم حجز كتابك بنجاح! سنتواصل معك خلال 24 ساعة لتأكيد الطلب.');
         document.getElementById('storyForm').reset(); 
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('حدث خطأ أثناء الإرسال. يرجى التأكد من اتصال الإنترنت والمحاولة مرة أخرى.');
+        alert('حدث خطأ أثناء الحجز. يرجى المحاولة مرة أخرى.');
     })
     .finally(() => {
         submitBtn.innerText = originalBtnText;
