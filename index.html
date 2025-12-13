@@ -425,7 +425,7 @@ body.dark-mode .what-you-get ul li {
         <div class="service-section fade-up" style="margin-bottom: 40px;">
            🎉 عرض تجريبي خاص - أول 20 عائلة فقط!
            <br><br>
-           احجز الآن بسعر 15$ فقط بدلاً من 35$ ✨
+        التسجيل مجاني الآن – لا يوجد أي دفع، وسنتواصل معك لاحقاً لتأكيد الطلب وتجربة المعاينة الأولى للكتاب ✨
         </div>
         
         <div class="order-form fade-up">
@@ -442,33 +442,53 @@ body.dark-mode .what-you-get ul li {
             </div>
 
             <!-- FORM DIRECTLY AFTER "What You Get" -->
-            <h3 class="mb-4 text-center" style="margin-top: 30px;">احجز نسختك - متبقي 13 كتاب فقط</h3>
-            <form id="storyForm">
-                <div class="mb-3">
-                    <label for="name" class="form-label">الاسم <span style="color:red">*</span></label>
-                    <input type="text" class="form-control" id="name" placeholder="أدخل اسمك">
-                    <div class="invalid-feedback" id="nameError" style="display:none;">الرجاء إدخال الاسم</div>
-                </div>
-                <div class="mb-3">
-                    <label for="phone" class="form-label">رقم الجوال</label>
-                    <input type="tel" class="form-control" id="phone" style="text-align: right;" placeholder="مثال: 0501234567 أو 00966501234567">
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">الإيميل</label>
-                    <input type="email" class="form-control" id="email" placeholder="مثال: ahmed@gmail.com" required>
-                    <div class="invalid-feedback" id="contactError" style="display:none;">الرجاء إدخال البريد الإلكتروني</div>
-                </div>
+           <h3 class="mb-4 text-center" style="margin-top: 30px;"> سجل مجاناً لتجربة معاينة كتاب طفلك – متبقي 13 فرصة فقط</h3>
+<form id="storyForm">
+    <!-- Step 1: Child info -->
+    <div class="mb-3">
+        <label for="childName" class="form-label">اسم الطفل <span style="color:red">*</span></label>
+        <input type="text" class="form-control" id="childName" placeholder="اكتب اسم طفلك كما تريد أن يظهر في القصة">
+        <div class="invalid-feedback" id="childNameError" style="display:none;">الرجاء إدخال اسم الطفل</div>
+    </div>
+    <div class="mb-3">
+        <label for="childAge" class="form-label">عمر الطفل (اختياري)</label>
+        <input type="number" class="form-control" id="childAge" placeholder="مثال: 6">
+    </div>
+    <!-- You can add real upload later; for now, keep it copy-based -->
+    <!--
+    <div class="mb-3">
+        <label for="childPhoto" class="form-label">صورة الطفل (اختياري حالياً)</label>
+        <input type="file" class="form-control" id="childPhoto" accept="image/*">
+    </div>
+    -->
 
-                <p class="price-info" style="text-align: center; line-height: 1.8; font-size: 16px;">
-                    💰 سعر تجريبي: 15$ فقط (السعر العادي 35$)
-                    <br>
-                    ⏰ العرض محدود - 13 مقعد متبقي فقط
-                </p>
+    <!-- Step 2: Parent contact info -->
+    <div class="mb-3 mt-4">
+        <label for="name" class="form-label">اسم ولي الأمر <span style="color:red">*</span></label>
+        <input type="text" class="form-control" id="name" placeholder="أدخل اسمك">
+        <div class="invalid-feedback" id="nameError" style="display:none;">الرجاء إدخال الاسم</div>
+    </div>
+    <div class="mb-3">
+        <label for="phone" class="form-label">رقم الجوال (اختياري)</label>
+        <input type="tel" class="form-control" id="phone" style="text-align: right;" placeholder="مثال: 0501234567 أو 00966501234567">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">الإيميل <span style="color:red">*</span></label>
+        <input type="email" class="form-control" id="email" placeholder="مثال: ahmed@gmail.com" required>
+        <div class="invalid-feedback" id="contactError" style="display:none;">الرجاء إدخال البريد الإلكتروني</div>
+    </div>
 
-                <div class="text-center mt-3">
-                    <button type="submit" class="btn btn-primary">احجز كتابي الآن - 15$ فقط</button>
-                </div>
-            </form>
+    <p class="price-info" style="text-align: center; line-height: 1.8; font-size: 16px;">
+        💰 لن يتم خصم أي مبلغ الآن.
+        <br>
+        📩 سنرسل لك معاينة الصفحة الأولى لكتاب طفلك خلال 24 ساعة على الإيميل / واتساب.
+    </p>
+
+    <div class="text-center mt-3">
+        <button type="submit" class="btn btn-primary">سجل مجاناً الآن لتجربة المعاينة</button>
+    </div>
+</form>
+
 
             <!-- REVIEWS MOVED HERE - After form -->
             <div style="background: linear-gradient(135deg, #f0f8ff 0%, #e0f2f7 100%); padding: 20px; border-radius: 12px; margin-top: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
@@ -604,18 +624,32 @@ if(toggleBtn) {
 // Form submission
 document.getElementById('storyForm').addEventListener('submit', function(e) {
     e.preventDefault(); 
+
+    const childNameInput = document.getElementById('childName');
+    const childAgeInput = document.getElementById('childAge');
     const nameInput = document.getElementById('name');
     const phoneInput = document.getElementById('phone');
     const emailInput = document.getElementById('email');
+
+    const childNameError = document.getElementById('childNameError');
     const nameError = document.getElementById('nameError');
     const contactError = document.getElementById('contactError');
     const submitBtn = this.querySelector('button[type="submit"]');
 
+    const childName = childNameInput.value.trim();
+    const childAge = childAgeInput.value.trim();
     const name = nameInput.value.trim();
     const phone = phoneInput.value.trim();
     const email = emailInput.value.trim();
 
     let valid = true;
+
+    if (!childName) {
+        childNameError.style.display = 'block';
+        valid = false;
+    } else {
+        childNameError.style.display = 'none';
+    }
 
     if (!name) {
         nameError.style.display = 'block';
@@ -634,7 +668,7 @@ document.getElementById('storyForm').addEventListener('submit', function(e) {
     if (!valid) return; 
 
     const originalBtnText = submitBtn.innerText;
-    submitBtn.innerText = "جاري الحجز...";
+    submitBtn.innerText = "جاري التسجيل...";
     submitBtn.disabled = true;
 
     let formattedPhone = phone;
@@ -646,9 +680,11 @@ document.getElementById('storyForm').addEventListener('submit', function(e) {
     }
 
     const payload = {
-        name: name,
+        parent_name: name,
         email: email === "" ? null : email,
-        phone: formattedPhone === "" ? null : formattedPhone
+        phone: formattedPhone === "" ? null : formattedPhone,
+        child_name: childName,
+        child_age: childAge === "" ? null : childAge
     };
 
     fetch('https://api.khayalkids.com/save', {
@@ -667,18 +703,19 @@ document.getElementById('storyForm').addEventListener('submit', function(e) {
     })
     .then(data => {
         fbq('track', 'CompleteRegistration');
-        alert('🎉 تم حجز كتابك بنجاح! سنتواصل معك خلال 24 ساعة لتأكيد الطلب.');
+        alert('🎉 شكراً! تم تسجيلك بنجاح.\nسنجهز لك معاينة الصفحة الأولى لكتاب طفلك ونرسلها لك خلال 24 ساعة.');
         document.getElementById('storyForm').reset(); 
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('حدث خطأ أثناء الحجز. يرجى المحاولة مرة أخرى.');
+        alert('حدث خطأ أثناء التسجيل. يرجى المحاولة مرة أخرى.');
     })
     .finally(() => {
         submitBtn.innerText = originalBtnText;
         submitBtn.disabled = false;
     });
 });
+
 </script>
 </body>
 </html>
