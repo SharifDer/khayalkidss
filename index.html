@@ -341,7 +341,14 @@ body.dark-mode .what-you-get ul li {
 }
 
 /* ====== FIX MOBILE RESPONSIVE IMAGES ====== */
-@media (max-width: 576px) {
+
+    @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+
+    @media (max-width: 576px) {
     .child-card {
         width: 100% !important;
         height: auto !important;
@@ -401,6 +408,29 @@ body.dark-mode .what-you-get ul li {
         <p style="font-size: 18px; color: #555; margin-bottom: 30px;">
             كتاب مطبوع 24 صفحة - صورة طفلك في كل صفحة - توصيل مجاني
         </p>
+        <!-- ADD CTA BUTTON HERE -->
+<div style="text-align: center; margin-bottom: 40px;">
+    <button onclick="scrollToForm()" class="btn btn-primary btn-lg" style="font-size: 22px; padding: 18px 50px; box-shadow: 0 6px 20px rgba(83,166,160,0.4); animation: pulse 2s infinite;">
+        ✨ سجل مجاناً وشاهد معاينة كتاب طفلك
+    </button>
+    <p style="color: #53A6A0; font-weight: 600; margin-top: 12px; font-size: 16px;">
+        🎁 الكتاب بـ 15$ فقط (بدلاً من 35$) - ادفع فقط بعد ما تشوف المعاينة
+    </p>
+    <p style="color: #555; font-size: 14px; margin-top: 8px;">
+        ⏰ متبقي 13 فرصة فقط من أصل 20
+    </p>
+</div>
+<!-- END CTA BUTTON -->
+<!-- ADD TRUST BADGES HERE -->
+<div style="text-align: center; margin-bottom: 30px;">
+    <p style="color: #555; font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;">
+        <span>✅ توصيل مجاني للسعودية والخليج</span>
+        <span>✅ ضمان استرداد 14 يوم</span>
+        <span>✅ +200 طفل و طفلة سعيدون بقصصهم</span>
+    </p>
+</div>
+<!-- END TRUST BADGES -->
+
         
         <div class="row g-4 justify-content-center">
             <div class="col-md-4 fade-up">
@@ -719,6 +749,17 @@ document.getElementById('storyForm').addEventListener('submit', function(e) {
         submitBtn.disabled = false;
     });
 });
+
+function scrollToForm() {
+    const form = document.querySelector('.order-form');
+    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    
+    // Track the click
+    gtag('event', 'cta_click', {'location': 'hero'});
+    fbq('trackCustom', 'CTAClick');
+}
+
+    
 let scrollTracked = {25: false, 50: false, 75: false, 100: false};
 
 window.addEventListener('scroll', function() {
